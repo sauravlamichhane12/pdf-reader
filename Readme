@@ -1,106 +1,30 @@
-README for "Generate Semantically Related Questions from PDF (Using Google Gemini)"
-Overview
-This Streamlit application allows users to upload a PDF containing questions and generate semantically related questions using the Google Gemini API. The application employs pdfplumber for extracting text from PDF files, regex for identifying questions, and Google's Generative AI model (Gemini Pro) to generate related questions based on context.
+# Generate Semantically Related Questions from PDF (Using Google Gemini)
 
-Features
-PDF Text Extraction:
+## Overview
+This Streamlit application allows users to upload a PDF containing questions and generate semantically related questions using the **Google Gemini API**. The application uses `pdfplumber` to extract text, regex to detect questions, and the **Google Gemini Pro** AI model to generate related questions based on the input.
 
-Uses pdfplumber to extract text from uploaded PDF files.
-Question Detection:
+---
 
-Identifies questions from the text using regular expressions.
-Semantic Question Generation:
+## Features
+- **PDF Text Extraction**:
+  Extract text from uploaded PDF files using `pdfplumber`.
+- **Question Detection**:
+  Identify questions in the text using regex.
+- **Semantic Question Generation**:
+  Use the Google Gemini API to generate semantically related questions.
+- **Interactive Interface**:
+  Built with Streamlit for user-friendly interaction.
 
-Leverages Google's Gemini Pro API to generate semantically related questions.
-Ensures the generated questions are unique, relevant, and not identical to the originals.
-User-Friendly Interface:
+---
 
-Built using Streamlit for simplicity and interactivity.
-Allows users to control the number of related questions generated.
-Requirements
-Prerequisites
-Python 3.8+
-Google Gemini API access
-API key stored in an environment variable (GOOGLE_API_KEY)
-Python Libraries
-streamlit
-pdfplumber
-google.generativeai
-langchain
-python-dotenv
-re
-nltk
-Installation
-Install the required libraries with:
+## Requirements
 
-bash
-Copy
-Edit
+### Prerequisites
+- Python 3.8 or higher
+- Google Gemini API access
+- Environment variable setup for API key (`GOOGLE_API_KEY`)
+
+### Python Libraries
+Install the required libraries using the following command:
+```bash
 pip install streamlit pdfplumber google-generativeai langchain python-dotenv nltk
-Usage
-1. Set Up Google Gemini API
-Obtain your API key from Google Gemini.
-Create a .env file in the same directory as the script and add your API key:
-makefile
-Copy
-Edit
-GOOGLE_API_KEY=your_google_gemini_api_key
-2. Run the Application
-Save the script in a file, e.g., app.py.
-Launch the application:
-bash
-Copy
-Edit
-streamlit run app.py
-3. Upload a PDF
-Use the file uploader to upload a PDF containing questions.
-4. Generate Related Questions
-Specify the number of related questions you want to generate for each question (1–10).
-Click the "Generate Related Questions" button to start the process.
-Key Functions
-1. extract_pdf_text
-Extracts text from the uploaded PDF using pdfplumber.
-
-2. extract_questions
-Uses a regex pattern to detect and extract questions from the text.
-
-3. generate_related_questions_with_gemini
-Generates semantically related questions using the Google Gemini Pro API.
-
-4. Streamlit Frontend
-Provides a clean and interactive user interface:
-
-Upload PDFs.
-Input the number of questions to generate.
-Display results dynamically.
-Example Output
-Input:
-Uploaded a PDF containing:
-
-csharp
-Copy
-Edit
-1. What is photosynthesis?
-2. Why do plants need sunlight?
-Output:
-Generated semantically related questions:
-
-markdown
-Copy
-Edit
-1. How does photosynthesis work in plants?
-2. What are the key factors for photosynthesis?
-3. Can plants survive without sunlight?
-Customization
-Adjust the temperature parameter in the ChatGoogleGenerativeAI initialization to control the creativity of responses.
-Modify the regex pattern in extract_questions for different text formats.
-Limitations
-Requires an active internet connection and Google Gemini API access.
-Regex-based question detection may miss non-standard question formats.
-Limited to PDFs with extractable text (no support for scanned images).
-Future Enhancements
-Add support for handling scanned PDFs using OCR (e.g., pytesseract).
-Enable multilingual support for question extraction and generation.
-Provide advanced settings for fine-tuning the output, such as controlling the style or tone of generated questions.
-License
-This project is open-source and available under the MIT License.
